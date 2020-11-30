@@ -11,8 +11,17 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/carsn/.oh-my-zsh"
 
-#Path to Flutter
+#Flutter
 export PATH="$PATH:`pwd`/dev/flutter/bin"
+
+#Java
+export JAVA_HOME="$HOME/.sdkman/candidates/java/8.0.275-amzn"
+export PATH="$PATH:$JAVA_HOME"
+
+#Android
+export ANDROID_HOME="$HOME/dev/android"
+export PATH=${PATH}:$ANDROID_HOME/tools
+export PATH=${PATH}:$ANDROID_HOME/tools/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -105,8 +114,18 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="code ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+###-tns-completion-start-###
+if [ -f /home/carsn/.tnsrc ]; then 
+    source /home/carsn/.tnsrc 
+fi
+###-tns-completion-end-###
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/carsn/.sdkman"
+[[ -s "/home/carsn/.sdkman/bin/sdkman-init.sh" ]] && source "/home/carsn/.sdkman/bin/sdkman-init.sh"
